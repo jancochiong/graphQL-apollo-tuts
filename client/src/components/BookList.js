@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import{gql} from 'apollo-boost';
-import {graphql} from 'react-apollo';
+import React, {Component} from 'react'
+import{gql} from 'apollo-boost'
+import {graphql} from 'react-apollo'
 
 const getBooksQuery = gql`{
     books{
@@ -11,20 +11,19 @@ const getBooksQuery = gql`{
 
 class BookList extends Component{
     displayBooks(){
-        var data = this.props.data;
+        var data = this.props.data
         if(data.loading){
-            return(<div> Loading Books...</div>);
+            return(<div> Loading Books...</div>)
         }else{
             return data.books.map(book =>{
                 return(
                     <li key={book.id}>{book.name}</li>
-                );
-            });
+                )
+            })
         }
     }
 
     render(){
-        console.log(this.props);
         return(
             <div>
                 <ul id="book-list">
@@ -35,4 +34,4 @@ class BookList extends Component{
     }
 }
 
-export default graphql(getBooksQuery)(BookList);
+export default graphql(getBooksQuery)(BookList)
